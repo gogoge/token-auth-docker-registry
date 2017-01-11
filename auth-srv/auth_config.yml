@@ -15,6 +15,6 @@ ext_auth:
   args: ["--flag", "--more", "--flags"]
 
 ext_authz:
-  command: "/config/ext-authz.sh"  # Can be a relative path too; $PATH works.
+  command: "/config/ext-authz"  # Can be a relative path too; $PATH works.
   args: ["--flag", "--more", "--flags"]
 
