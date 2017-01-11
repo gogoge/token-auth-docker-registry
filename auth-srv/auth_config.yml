@@ -1,0 +1,20 @@
+server:
+  addr: ":5001"
+  certificate: "/certs/domain.crt"
+  key: "/certs/domain.key"
+
+token:
+  issuer: "Auth Service"  # Must match issuer in the Registry config.
+  realm: "https://gogoge:5001/auth"
+  service: "Docker registry"
+  rootcertbundle: "/certs/domain.crt"
+  expiration: 900
+
+ext_auth:
+  command: "/config/ext-authn.sh"  # Can be a relative path too; $PATH works.
+  args: ["--flag", "--more", "--flags"]
+
+ext_authz:
+  command: "/config/ext-authz.sh"  # Can be a relative path too; $PATH works.
+  args: ["--flag", "--more", "--flags"]
+
