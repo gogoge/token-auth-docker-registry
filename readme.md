@@ -93,6 +93,14 @@ Error response from daemon: login attempt to https://localhost:5000/v2/ failed w
 
 
 # Error 1: token signed by untrusted key with ID
+###  handshake error
+### insecure registry  
+https://github.com/docker/docker/issues/23228#issuecomment-223732192  
+
+### Failed tls handshake. Does not contain any IP SANs
+http://serverfault.com/questions/611120/failed-tls-handshake-does-not-contain-any-ip-sans
+> NO IP , use host name
+://github.com/docker/distribution/issues/1143
 
 ```
 docker logs -f registry
@@ -150,6 +158,10 @@ Common Name (e.g. server FQDN or YOUR name) []:<hostname>
 Email Address []:
 ```
 
+## 401 insufficient_scope
+https://github.com/docker/docker-registry/issues/1071
+
+> use correct scope when get token
 
 # if you do not want to use token auth
 
@@ -176,3 +188,11 @@ docker run -d -p 5000:5000 \
   -e REGISTRY_AUTH_HTPASSWD_PATH=/auth/htpasswd \
   registry:2
 ```
+
+# reference
+https://gist.github.com/jlhawn/8f218e7c0b14c941c41f
+https://blog.opendns.com/2016/02/23/implementing-oauth-for-registry-v2/
+https://github.com/kwk/docker-registry-setup
+https://www.sslshopper.com/certificate-decoder.html
+https://the.binbashtheory.com/creating-private-docker-registry-2-0-with-token-authentication-service/
+
