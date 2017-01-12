@@ -1,5 +1,6 @@
 docker run \
   -p 5001:5001 \
+  --restart=always \
   -v `pwd`:/config \
   -v `pwd`:/logs \
   -v `pwd`/../certs:/certs \
